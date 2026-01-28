@@ -2729,6 +2729,15 @@ crypto = [
 ]
 
 [[package]]
+name = "pypdf"
+version = "6.6.2"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/b8/bb/a44bab1ac3c54dbcf653d7b8bcdee93dddb2d3bf025a3912cacb8149a2f2/pypdf-6.6.2.tar.gz", hash = "sha256:0a3ea3b3303982333404e22d8f75d7b3144f9cf4b2970b96856391a516f9f016", size = 5281850 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/7d/be/549aaf1dfa4ab4aed29b09703d2fb02c4366fc1f05e880948c296c5764b9/pypdf-6.6.2-py3-none-any.whl", hash = "sha256:44c0c9811cfb3b83b28f1c3d054531d5b8b81abaedee0d8cb403650d023832ba", size = 329132 },
+]
+
+[[package]]
 name = "pyperclip"
 version = "1.11.0"
 source = { registry = "https://pypi.org/simple" }
@@ -3023,6 +3032,7 @@ dependencies = [
     { name = "google-genai" },
     { name = "pydantic" },
     { name = "pydantic-ai" },
+    { name = "pypdf" },
     { name = "python-dotenv" },
     { name = "streamlit" },
     { name = "uvicorn" },
@@ -3035,6 +3045,7 @@ requires-dist = [
     { name = "google-genai", specifier = ">=1.60.0" },
     { name = "pydantic", specifier = ">=2.12.5" },
     { name = "pydantic-ai", specifier = ">=1.44.0" },
+    { name = "pypdf", specifier = ">=6.6.2" },
     { name = "python-dotenv", specifier = ">=1.2.1" },
     { name = "streamlit", specifier = ">=1.53.0" },
     { name = "uvicorn", specifier = ">=0.40.0" },
