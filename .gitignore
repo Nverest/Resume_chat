@@ -208,3 +208,8 @@ __marimo__/
 
 .env
 environment
+
+# Vector database and resume data
+knowledge_base/
+backend/data/*.pdf
+backend/data/*.txt
