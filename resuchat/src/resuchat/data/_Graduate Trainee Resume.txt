@@ -1,0 +1,64 @@
+Linus Johansson
+Väderlekstorget 6e, Göteborg, Sweden
+Phone: +46733962097
+Email: Linusjohaan@gmail.com
+LinkedIn
+Github
+Motivated Backend focused developer graduating in June 2026 with hands-on 
+experience in AI applications, database systems, and data driven projects. Experienced 
+in building production style prototypes including chatbots, dashboards, and 
+automation pipelines. Actively seeking part-time or junior developer roles, with a 
+strong enthusiasm for contributing to AI and software development innovation.
+Skills
+Programming: Python, SQL, C#, CSS, HTML
+Data and Analytics: Pandas, NumPy, Matplotlib, Plotly, DuckDB
+AI/ML: Machine Learning fundamentals, RAG systems, prompt engineering, LLM integration, predictive analytics
+Backend and Tools: REST APIs, Git, GitHub, Streamlit, Jupyter Notebook, internal tools, cloud services, automation
+Databases: Relational databases, vector databases, data modeling, database management
+Methodology: Agile workflow, Scrum, Kanban
+Work Experience
+Backend Developer Intern, Stilify AB, Göteborg, Sweden — October 2025 - December 2025
+Engineered and deployed an AI-powered chatbot using Python and API integrations to automate customer 
+interactions, demonstrating strong problem-solving skills.
+Increased response precision by implementing structured prompt logic, which improved the relevance and 
+accuracy of AI-generated answers by 85%.
+Enhanced user engagement by integrating the chatbot with internal product data, enabling the system to provide 
+dynamic, personalized recommendations, contributing to a data-driven approach.
+Streamlined support operations by automating common customer workflows, reducing manual ticket handling by 
+30%.
+Store Manager, XL-Bygg JBM, Kalmar, Sweden — June 2017 - January 2024
+Directed daily operations for a high-volume retail environment, consistently meeting operational efficiency targets 
+through effective team-oriented management.
+Developed standardized digital documentation and service workflows that optimized customer request handling, 
+resulting in a 90% increase in order-processing efficiency.
+Improved customer satisfaction through structured service routines and faster issue resolution, showcasing strong 
+problem-solving skills.
+Improved and maintained strong supplier relationships to ensure efficient and timely deliveries.
+Projects
+AI-powered health application for women
+Active development project
+Developed predictive models to analyze menstrual cycle data and improve forecasting accuracy, leveraging 
+predictive analytics.
+Built AI chat interface focused on user wellbeing, privacy, and secure data handling, demonstrating customer-
+facing application development.
+AI-driven e-commerce platform
+Developed an automated system that generates product content using generative AI and Python.
+Implemented logic to detect upcoming holidays and create context specific product prompts, enhancing 
+automation capabilities.
+Automated asset storage and publishing workflows using cloud storage integration and REST APIs.
+HR Analytics Dashboard (academic project)
+Built a full data pipeline using DLT, DuckDB, Pandas, and Streamlit, showcasing database management and data 
+visualization skills.
+Created interactive dashboards to visualize KPIs such as turnover, headcount trends, and department performance.
+Automated data ingestion and reporting processes to reduce manual workload, contributing to knowledge sharing 
+and scalability.
+Education
+Object Oriented Programing with AI, NBI Handelsakademin, Göteborg, Sweden — August 2024 - Present
+Focus on backend development, databases, and AI systems, aligning with Computer Science principles.
+Hands on project based learning with C#, Python and SQL, and Web development.
+Agile team based development workflows, emphasizing a team-oriented approach.
+Courses
+CS50, EDX — January 2024
+Languages
+Swedish - Native
+English - Fluent
