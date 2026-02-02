@@ -5,4 +5,4 @@ description = "frontend Resumechat project"
 
 requires-python = ">=3.11"
 
-dependencies = ["streamlit"]
+dependencies = ["streamlit", "requests", "pathlib"]
