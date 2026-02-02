@@ -1,5 +1,6 @@
 from fastapi import FastAPI, UploadFile, File
-from chat import chat_agent
+from chat import chat_agent, extract_agent
+
 from models import Prompt
 from constants import DATA_PATH, VECTOR_DATABASE_PATH
 from pypdf import PdfReader
@@ -64,3 +65,14 @@ async def upload_file(file: UploadFile = File(...)):
     
     except Exception as e:
         return {"status": "error", "message": str(e)}
+    
+@app.get("/resume/sections")
+async def get_resume_sections():
+    vector_db = lancedb.connect(uri=VECTOR_DATABASE_PATH)
+    """extract structured sections from latest uploaded resume"""
+    results = vector_db["Resume"].search("resume internships education projects skills").limit(5).to_list()
+
+    all_content = "\n\n".join(doc["content"] for doc in results)
+    
+    result = await extract_agent.run(all_content)
+    return result.output

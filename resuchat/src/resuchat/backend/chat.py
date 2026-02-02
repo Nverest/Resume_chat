@@ -1,5 +1,5 @@
 from pydantic_ai import Agent
-from models import ChatResponse
+from models import ChatResponse, ResumeSection
 from constants import VECTOR_DATABASE_PATH
 import lancedb
 
@@ -16,6 +16,17 @@ chat_agent = Agent(
         "information is not present in the provided documents, respond with 'I do not know' or equivalent in prompted language"
     ),
     output_type=ChatResponse,
+)
+
+extract_agent = Agent(
+    model="google-gla:gemini-2.5-flash",
+    retries=3,
+    system_prompt=(
+        "Extract structured sections from the provided resume text. "
+        "Return job titles with company names, internships with company names education entries, "
+        "project names, and key skills."
+    ),
+    output_type=ResumeSection
 )
 
 
