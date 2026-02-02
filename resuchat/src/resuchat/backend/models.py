@@ -15,6 +15,13 @@ class Resume(LanceModel):
     content: str = embedding_model.SourceField()
     embedding: Vector(EMBEDDING_DIM) = embedding_model.VectorField()
 
+class ResumeSection(BaseModel):
+    jobs: list[str] = Field(description="list of name of jobs")
+    internships: list[str] = Field(description="list of name of internships")
+    education: list[str]= Field(description="list of name of schools and courses")
+    projects: list[str]=Field(description="list of projects and brief description of them")
+    skills: list[str]=Field(description="list of skills")
+
 class Prompt(BaseModel):
     prompt: str = Field(description="prompt from user, if empty consider prompt as missing")
 
