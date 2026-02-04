@@ -10,4 +10,6 @@ WORKDIR /app/frontend
 
 RUN uv sync --no-dev
 
-CMD ["uv", "run", "streamlit", "run", "front_chat.py", "--server.port=8501", "--server.address=0.0.0.0"]
+CMD ["sh", "-c", "uv run streamlit run front_chat.py \
+    --server.port=${PORT:-8501} \
+    --server.address=0.0.0.0"]

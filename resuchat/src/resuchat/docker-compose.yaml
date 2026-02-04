@@ -1,25 +1,26 @@
 services:
     backend:
-        build: 
+        build:
             context: .
             dockerfile: backend/Dockerfile
         ports:
-            - "8000:8000"
+            - "8000:80"
         env_file:
             - ../../../.env
         volumes:
             - ./data:/app/data
             - ./knowledge_base:/app/knowledge_base
+        image: resuchat-d8dge0g6c8aqeagx.azurecr.io/resuchat-backend:latest
 
-  
     frontend:
-        build: 
+        build:
             context: .
             dockerfile: frontend/Dockerfile
-            
         ports:
             - "8501:8501"
         depends_on:
             - backend
         environment:
-            - API_URL=http://backend:8000
+            # - API_URL=http://backend
+            - API_URL=https://resuchat-backend.livelysmoke-9d49bf03.swedencentral.azurecontainerapps.io
+        image: resuchat-d8dge0g6c8aqeagx.azurecr.io/resuchat-frontend:latest

@@ -4,7 +4,7 @@ from constants import VECTOR_DATABASE_PATH
 import lancedb
 
 chat_agent = Agent(
-    model="google-gla:gemini-2.0-flash",
+    model="google-gla:gemini-2.5-flash",
     retries=3,
     system_prompt=(
         "You are a impersonator bot that impersonates the person based on the "
@@ -19,7 +19,7 @@ chat_agent = Agent(
 )
 
 extract_agent = Agent(
-    model="google-gla:gemini-2.0-flash",
+    model="google-gla:gemini-2.5-flash",
     retries=3,
     system_prompt=(
         "Extract structured sections from the provided resume text. "
