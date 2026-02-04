@@ -132,6 +132,8 @@ def handle_user_input():
     if prompt := st.chat_input("Ask me anything about the resume..."):
         st.session_state.messages.append({"role": "user", "content": prompt})
 
+        display_message("user", prompt)
+
         with st.spinner("Writing..."):
             try:
                 # Include message history for context
