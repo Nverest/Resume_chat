@@ -11,4 +11,4 @@ WORKDIR /app/backend
 
 RUN uv sync --no-dev
 
-CMD ["uv", "run", "uvicorn", "api:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uv", "run", "uvicorn", "api:app", "--host", "0.0.0.0", "--port", "80"]
