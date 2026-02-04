@@ -1,6 +1,6 @@
 from fastavro import reader
 from pypdf import PdfReader
-from backend.app.constants import DATA_PATH
+from utils.constants import DATA_PATH
 
 def extract_text_from_pdf(path)-> str:
     reader = PdfReader(path)
