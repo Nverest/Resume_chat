@@ -1,8 +1,9 @@
 from fastapi import FastAPI, UploadFile, File
 from chat import chat_agent, extract_agent
-from models import Prompt, Resume
+from models import Prompt, Resume, ChatResponse
 from constants import VECTOR_DATABASE_PATH
 from pypdf import PdfReader
+from pydantic_ai.exceptions import ModelHTTPError
 import lancedb
 import io
 
@@ -10,8 +11,13 @@ app = FastAPI()
 
 @app.post("/chat/query")
 async def query_doc(query: Prompt):
-    result = await chat_agent.run(query.prompt)
-    return result.output
+    try:
+        result = await chat_agent.run(query.prompt)
+        return result.output
+    except ModelHTTPError as e:
+        if "429" in str(e) or "RESOURCE_EXHAUSTED" in str(e):
+            return ChatResponse(answer="Jag mår lite dåligt just nu, vänta ett ögonblick.")
+        return ChatResponse(answer=f"Error: {str(e)}")
 
 @app.post("/upload")
 async def upload_file(file: UploadFile = File(...)):
@@ -52,11 +58,16 @@ async def upload_file(file: UploadFile = File(...)):
     
 @app.get("/resume/sections")
 async def get_resume_sections():
-    vector_db = lancedb.connect(uri=VECTOR_DATABASE_PATH)
-    """extract structured sections from latest uploaded resume"""
-    results = vector_db["Resume"].search("resume internships education projects skills").limit(5).to_list()
+    """Extract structured sections from latest uploaded resume"""
+    try:
+        vector_db = lancedb.connect(uri=VECTOR_DATABASE_PATH)
+        results = vector_db["Resume"].search("resume internships education projects skills").limit(5).to_list()
 
-    all_content = "\n\n".join(doc["content"] for doc in results)
-    
-    result = await extract_agent.run(all_content)
-    return result.output
+        all_content = "\n\n".join(doc["content"] for doc in results)
+
+        result = await extract_agent.run(all_content)
+        return result.output
+    except ModelHTTPError as e:
+        if "429" in str(e) or "RESOURCE_EXHAUSTED" in str(e):
+            return {"jobs": [], "internships": [], "education": [], "projects": [], "skills": []}
+        raise
