@@ -120,7 +120,7 @@ def handle_user_input():
                 try:
                     message_history = st.session_state.messages
                     full_prompt = "\n".join(f"{m['role']}: {m['content']}" for m in message_history)
-                    full_prompt += "\nUser: " + prompt
+                    full_prompt += "\nuser: " + prompt
                     response = requests.post(
                         f"{API_URL}/chat/query",
                         json={"prompt": full_prompt},
