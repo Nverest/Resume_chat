@@ -1,0 +1,8 @@
+[project]
+name = "frontend"
+version = "0.1.0"
+description = "frontend Resumechat project"
+
+requires-python = ">=3.11"
+
+dependencies = ["streamlit", "requests", "pathlib"]

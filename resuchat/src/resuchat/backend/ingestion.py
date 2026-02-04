@@ -1,6 +1,6 @@
-from backend.app.constants import VECTOR_DATABASE_PATH, DATA_PATH
+from constants import VECTOR_DATABASE_PATH, DATA_PATH
 import lancedb
-from backend.app.models import Resume
+from models import Resume
 import time
 from pathlib import Path
 

@@ -1,0 +1,18 @@
+[project]
+name = "backend"
+version = "0.1.0"
+description = "backend Resumechat project"
+
+requires-python = ">=3.11"
+
+dependencies = [
+    "lancedb",
+    "pydantic-ai",
+    "pydantic",
+    "fastapi",
+    "uvicorn",
+    "google-genai",
+    "google-generativeai",
+    "pypdf",
+    "python_dotenv"
+]

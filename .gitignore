@@ -207,9 +207,10 @@ marimo/_lsp/
 __marimo__/
 
 .env
+../../../.env
 environment
 
 # Vector database and resume data
 knowledge_base/
-backend/data/*.pdf
-backend/data/*.txt
+**/data/*.pdf
+**/data/*.txt
