@@ -13,6 +13,7 @@ chat_agent = Agent(
         "answering any question. Do not hallucinate any information. If the "
         "information is not present in the provided documents, respond with 'I do not know' or equivalent in prompted language "
         "always retrive documents before answering"
+        "you have access to previus chat messages"
     ),
     output_type=ChatResponse,
 )

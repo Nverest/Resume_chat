@@ -134,9 +134,14 @@ def handle_user_input():
 
         with st.spinner("Writing..."):
             try:
+                # Include message history for context
+                message_history = st.session_state.messages
+                full_prompt = "\n".join(f"{m['role']}: {m['content']}" for m in message_history)
+                full_prompt += "\nuser: " + prompt
+
                 response = requests.post(
                     f"{API_URL}/chat/query",
-                    json={"prompt": prompt},
+                    json={"prompt": full_prompt},
                     timeout=60
                 )
                 if response.status_code == 200 and response.text:
