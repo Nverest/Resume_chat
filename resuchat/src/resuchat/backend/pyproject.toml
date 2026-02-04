@@ -8,9 +8,11 @@ requires-python = ">=3.11"
 dependencies = [
     "lancedb",
     "pydantic-ai",
+    "pydantic",
     "fastapi",
     "uvicorn",
     "google-genai",
     "google-generativeai",
-    "pypdf"
+    "pypdf",
+    "python_dotenv"
 ]
