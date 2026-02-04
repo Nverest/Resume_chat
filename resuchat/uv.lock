@@ -264,8 +264,10 @@ dependencies = [
     { name = "google-genai" },
     { name = "google-generativeai" },
     { name = "lancedb" },
+    { name = "pydantic" },
     { name = "pydantic-ai" },
     { name = "pypdf" },
+    { name = "python-dotenv" },
     { name = "uvicorn" },
 ]
 
@@ -275,8 +277,10 @@ requires-dist = [
     { name = "google-genai" },
     { name = "google-generativeai" },
     { name = "lancedb" },
+    { name = "pydantic" },
     { name = "pydantic-ai" },
     { name = "pypdf" },
+    { name = "python-dotenv" },
     { name = "uvicorn" },
 ]
 
