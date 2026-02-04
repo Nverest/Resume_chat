@@ -23,7 +23,7 @@ class ResumeSection(BaseModel):
     skills: list[str]=Field(description="list of skills")
 
 class Prompt(BaseModel):
-    prompt: str = Field(description="prompt from user, if empty consider prompt as missing")
+    prompt: str = Field(description="prompt from user as well as chat history, if empty consider prompt as missing")
 
 class ChatResponse(BaseModel):
     answer: str = Field(description="answer based on the prompt and context")

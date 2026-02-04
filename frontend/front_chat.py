@@ -1,5 +1,4 @@
 import streamlit as st
-import requests
 import sys
 from pathlib import Path
 sys.path.append(str(Path(__file__).parent.parent.resolve()))
@@ -22,16 +21,17 @@ def handle_user_input():
     
     if input_text:
         st.session_state.messages.append({"role": "user", "content": input_text})
-        
+        message_history = st.session_state.messages
         # Call the FastAPI backend
-        response = requests.post(
-            "http://127.0.0.1:8000/chat/query", 
-            json={"prompt": input_text}
-        )
-        payload = input_text
-        response = post_api_endpoint(payload, endpoint="/api/predict")
-        
-        bot_response = response.json()
+        full_prompt = "\n".join(f"{m['role']}: {m['content']}" for m in message_history)
+        full_prompt += "\nUser: " + input_text
+        payload = {"prompt": str(full_prompt)}
+        response = post_api_endpoint(payload, endpoint="/chat/query")
+        if response.headers.get("Content-Type") == "application/json" and response.content:
+            bot_response = response.json().get("answer")
+        else:
+            bot_response = response.text  # fallback to raw string
+
         
         st.session_state.messages.append({"role": "assistant", "content": bot_response})
         
