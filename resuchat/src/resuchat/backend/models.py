@@ -27,3 +27,9 @@ class Prompt(BaseModel):
 
 class ChatResponse(BaseModel):
     answer: str = Field(description="answer based on the prompt and context")
+
+class ResumeSumarizerInput(BaseModel):
+    prompt: str = Field(description="Resume to be sumarized into KPIs of numbers of years of experience, different jobs and a short sumary of the person")
+
+class ResumeSumarizerOutput(BaseModel):
+    awnser: str = Field(description="Sumary of resume's KPIs of numbers of years of experience, different jobs and a short sumary of the person")
