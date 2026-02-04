@@ -1,7 +1,6 @@
 from fastapi import FastAPI, UploadFile, File
 from chat import chat_agent, extract_agent
-
-from models import Prompt
+from models import Prompt, Resume
 from constants import DATA_PATH, VECTOR_DATABASE_PATH
 from pypdf import PdfReader
 import lancedb
@@ -45,26 +44,31 @@ async def upload_file(file: UploadFile = File(...)):
             text = content.decode('utf-8')
         
         # Ingest into vector database
-        vector_db = lancedb.connect(uri=VECTOR_DATABASE_PATH)
-        table = vector_db.open_table("Resume")
+        db = lancedb.connect(uri=VECTOR_DATABASE_PATH)
         
+        
+        if "Resume" in db.table_names():
+            db.drop_table("Resume")
+
+        table = db.create_table("Resume", schema=Resume)
+
         doc_id = file.filename.split('.')[0].lower()
-        
-        # Delete existing entry if it exists
-        table.delete(f"doc_id = '{doc_id}'")
-        
+
         # Add new entry
-        table.add([{
-            "doc_id": doc_id,
-            "filepath": str(file_path),
-            "filename": doc_id,
-            "content": text
-        }])
+        table.add([
+            {
+                "doc_id": doc_id,
+                "filepath": str(file_path),
+                "filename": doc_id,
+                "content": text
+            }
+        ])
         
         return {"status": "success", "filename": file.filename}
     
     except Exception as e:
-        return {"status": "error", "message": str(e)}
+        import traceback
+        return {"status": "error", "message": str(e), "trace": traceback.format_exc()}
     
 @app.get("/resume/sections")
 async def get_resume_sections():
